@@ -1,6 +1,8 @@
+const tokenHA = require('./tokens.js')();
+const tv_name = 'taricha';
+
 const Ginger = require('../../core/ginger.js');
 let ginger = new Ginger(true);
-const tv_name = 'taricha';
 
 let tunnel = ginger.createMyLogLogOutputTunnel('taricha-hdmi-cec');
 
@@ -35,9 +37,12 @@ let sourceInputTunnel = ginger.createHTTPInputTunnel(
 let outputOptions = {
   hostname: '192.168.222.222',
   port: 8123,
-  method: 'POST'
+  method: 'POST',
+  headers: {
+    "Authorization": tokenHA,
+    "content-type": "application/json"
+  }
 }
-outputOptions.headers = require('./tokens.js')();
 
 let onOutputTunnel = ginger.createHTTPOutputTunnel(
   Object.assign({path: '/api/states/input_boolean.' + tv_name}, outputOptions),
