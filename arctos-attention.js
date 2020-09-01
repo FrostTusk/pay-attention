@@ -1,12 +1,17 @@
-const Ginger = require('../../core/ginger.js');
+const tokenHA = require('./tokens.js')();
+
+const Ginger = require('/home/arctos/Git/G.I.N.G.E.R./Platform/core/ginger.js');
 const ginger = new Ginger(true);
 
 let outputOptions = {
   hostname: 'localhost',
   port: 8123,
-  method: 'POST'
+  method: 'POST',
+  headers: {
+	"Authorization": tokenHA,
+	"content-type": "application/json"
+  }
 }
-outputOptions.headers = require('./tokens.js')();
 
 let watch = '/home/arctos/ftp/files/staurois';
 
