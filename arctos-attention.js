@@ -1,7 +1,5 @@
-const tokenHA = require('./tokens.js')();
-
-const Ginger = require('/home/arctos/Git/G.I.N.G.E.R./Platform/core/ginger.js');
-const ginger = new Ginger(true);
+const tokenHA = require('./hidden/tokens-lutra.js')();
+const ginger = require('@frosttusk/ginger')(true);
 
 let outputOptions = {
   hostname: 'localhost',
