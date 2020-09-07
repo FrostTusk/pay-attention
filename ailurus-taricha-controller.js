@@ -1,8 +1,7 @@
-const tokenHA = require('./tokens.js')();
+const tokenHA = require('./hidden/tokens-lutra.js')();
 const tv_name = 'taricha';
 
-const Ginger = require('/home/pi/Git/G.I.N.G.E.R./Platform/core/ginger.js');
-let ginger = new Ginger(true);
+const ginger = require('@frosttusk/ginger')(true);
 
 let tunnel = ginger.createMyLogLogOutputTunnel('taricha-hdmi-cec');
 
