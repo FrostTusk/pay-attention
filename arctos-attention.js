@@ -1,8 +1,9 @@
 const tokenHA = require('./hidden/tokens-lutra.js')();
 const ginger = require('@frosttusk/ginger')(true);
+//const ginger = require('../G.I.N.G.E.R./core/ginger.js')(true);
 
 let outputOptions = {
-  hostname: 'localhost',
+  hostname: '192.168.1.105',
   port: 8123,
   method: 'POST',
   headers: {
@@ -25,6 +26,20 @@ outputTunnels.push(ginger.createHTTPOutputTunnel(
   (data) => {
     return JSON.stringify({state: 'on'});
 }/*, undefined, undefined, tunnel*/));
+
+/**
+const tokenssmtp = require('./hidden/tokens-smtp.js')();
+let options = {
+  host: "smtp.zoho.eu",
+  port:  465,
+  secure: true, // use SSL
+  auth: tokenssmtp
+}
+
+outputTunnels.push(ginger.createSMTPOutputTunnel(
+  options, undefined, undefined, undefined, undefined,
+  '"Fred Foo 👻" <admin@hub.industries>', 'frosttusk@gmail.com', 'motion detected on amnirana'));
+*/
 
 function trickMood(evt, name) {
   if (evt != 'update') //filter
