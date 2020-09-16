@@ -12,7 +12,7 @@ let outputOptions = {
   }
 }
 
-let watch = '/home/arctos/ftp/files/staurois';
+let watch = '/home/arctos/ftp/files/amnirana';
 
 let tunnel = ginger.createMyLogLogOutputTunnel('amnirana-motion-detection');
 let outputTunnels = [ginger.createHTTPOutputTunnel(
