@@ -13,14 +13,18 @@ let inputOptions = {
 
 let logTunnel = ginger.createMyLogLogOutputTunnel('HDMI-CEC Trick Input');
 
+let express = require('express');
+
 let onInputTunnel = ginger.createHTTPInputTunnel(
-  Object.assign({path: '/' + tv_name + '/on'}, inputOptions)/*,
-  undefined, undefined, undefined, logTunnel*/
+  Object.assign({path: '/' + tv_name + '/on'}, inputOptions),
+  undefined, undefined, undefined, undefined /*logTunnel*/,
+  [express.json()]
 );
 
 let offInputTunnel = ginger.createHTTPInputTunnel(
-  Object.assign({path: '/' + tv_name + '/off'}, inputOptions)/*,
-  undefined, undefined, undefined, logTunnel*/
+  Object.assign({path: '/' + tv_name + '/off'}, inputOptions),
+  undefined, undefined, undefined, undefined /*logTunnel*/,
+  [express.json()]
 );
 
 let sourceInputTunnel = ginger.createHTTPInputTunnel(
@@ -30,7 +34,7 @@ let sourceInputTunnel = ginger.createHTTPInputTunnel(
     if (typeof(source) === 'number' && source >= 0 && source <= 9)
       return source;
     throw "invalid source";
-  }/*, undefined, undefined, logTunnel*/);
+  }, undefined, undefined, undefined /*logTunnel*/, [express.json()]);
 
 
 let outputOptions = {

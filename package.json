@@ -9,6 +9,7 @@
     "url": "https://github.com/FrostTusk/pay-attention"
   },
   "dependencies": {
-    "@frosttusk/ginger": "^0.1.3"
+    "@frosttusk/ginger": "^0.1.3",
+    "express": "^4.17.1"
   }
 }
