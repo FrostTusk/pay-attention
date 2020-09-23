@@ -1,4 +1,5 @@
-const ginger = require('@frosttusk/ginger')(true);
+//const ginger = require('@frosttusk/ginger')(true);
+const ginger = require('../../G.I.N.G.E.R./core/ginger.js')(true);
 
 const tokensSMTP = require('../hidden/tokens-smtp.js')();
 const websiteMailformReflector =
