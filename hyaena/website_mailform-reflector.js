@@ -14,7 +14,7 @@ module.exports = function (ginger, tokensSMTP) {
   let mailTunnel = ginger.createSMTPOutputTunnel(mailOptions, undefined, undefined, undefined, logTunnel,
     'admin@hub.industries');
 
-  let http_uses = [express.static(path.join(__dirname, '/var/www/me/react-resume-template/build'))];
+  let http_uses = [express.static(path.join('/var/www/me/react-resume-template/build'))];
   const bodyParser = require('body-parser');
   http_uses.push(bodyParser.urlencoded({ extended: false }));
 
@@ -25,9 +25,9 @@ module.exports = function (ginger, tokensSMTP) {
 
    let htmlHTTPTunnel = ginger.createHTTPInputTunnel(Object.assign({method: 'GET', path: '*'}, options),
      (req, res) => {return res;}, undefined, undefined, undefined, http_uses);
-  
+
    htmlHTTPTunnel.on((data) => {
-     data.sendFile(path.resolve(__dirname, '/var/wwww/me/react-resume-template/build', 'index.html'));
+     data.sendFile(path.resolve('/var/www/me/react-resume-template/build', 'index.html'));
    });
 
   let emailHTTPTunnel = ginger.createHTTPInputTunnel(Object.assign({method: 'POST', path: '/inc/sendEmail.php'}, options),
