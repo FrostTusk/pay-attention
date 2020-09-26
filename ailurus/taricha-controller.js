@@ -1,8 +1,6 @@
 module.exports = function (ginger, tokenHA) {
   const tv_name = 'taricha';
 
-  const ginger = require('@frosttusk/ginger')(true);
-
   let tunnel = ginger.createMyLogLogOutputTunnel('taricha-hdmi-cec');
 
   let inputOptions = {
